@@ -1,11 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class Drone_Movement : MonoBehaviour
+public class DronePlayer : MonoBehaviour
 {
+    public float maxSpeed = 5.0f;
+    public int score = 0;
+    public float getMaxSpeed()
+    {
+        return maxSpeed;
+    }
+    public void setMaxSpeed(float speed)
+    {
+        maxSpeed = speed;
+    }
+    public /*Score*/ void getScore()
+    {
+    }
+
     // Declare Flight Controller Variables
-    public float forwardSpeed = 25f, strafeSpeed = 7.5f, hoverSpeed = 5f;
+    public float forwardSpeed = 0.0f, strafeSpeed = 0.0f, hoverSpeed = 0.0f;
     private float activeForwardSpeed, activeStrafeSpeed, activeHoverSpeed;
 
     // Start is called before the first frame update
@@ -49,6 +60,10 @@ public class Drone_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        forwardSpeed = maxSpeed;
+        strafeSpeed = maxSpeed;
+        hoverSpeed = maxSpeed;
+        //Debug.Log("forwardSpeed = "+forwardSpeed);
         //activeForwardSpeed = Input.GetAxisRaw("Vertical") * forwardSpeed;
         //activeStrafeSpeed = Input.GetAxisRaw("Horizontal") * strafeSpeed;
         //activeHoverSpeed = Input.GetAxisRaw("Hover") * hoverSpeed;
@@ -91,4 +106,3 @@ public class Drone_Movement : MonoBehaviour
         }
     }
 }
-
